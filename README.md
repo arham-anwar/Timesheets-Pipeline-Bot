@@ -10,6 +10,7 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 - data set: Timesheets-Pipeline-Bot/Weekly Files to be Consolidated/
 
 
+![Time Sheets Gif](https://user-images.githubusercontent.com/64707681/189487172-69a6c5ed-ea84-48ef-a39b-04b57b70721a.gif)
 
 
 # Table of contents
@@ -49,6 +50,7 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 - I have tried to structure the Jupyter notebook and this README so that they have corresponding sections. However, I do not wish to merely repeat here what has been stated in the notebook. I will endeavour to have this README summarize the work of the notebook and, hopefully, complement the analyses done there.
 
 ##  2. Flow <a name="section2"></a>
+
 <img width="960" alt="Flow Map" src="https://user-images.githubusercontent.com/64707681/189486763-12012d50-e301-489f-806a-fad11521673c.PNG">
 
 -Step one: Team members fill in the weekly timesheets through an excel workbook on cloud storage for all hours, including commute, team meals, meetings, weekend hours (if any), paid time offs, vacations, holidays etc. As soon as they would fill the timesheets, the timesheets would get sent to my folders through macros on the workbook.
