@@ -10,7 +10,7 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 - data set: Timesheets-Pipeline-Bot/Weekly Files to be Consolidated/
 
 <p align="center">
-![Time Sheets Gif](https://user-images.githubusercontent.com/64707681/189487172-69a6c5ed-ea84-48ef-a39b-04b57b70721a.gif)
+<img src=https://user-images.githubusercontent.com/64707681/189487172-69a6c5ed-ea84-48ef-a39b-04b57b70721a.gif >
 </p>
 
 # Table of contents
