@@ -9,7 +9,7 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 - Jupyter notebook: **Timesheets_Consolidation _ Email Bot.ipynb**
 - data set: Timesheets-Pipeline-Bot/Weekly Files to be Consolidated/
 
-![Flow!](Flow-Map.PNG)
+![Flow Map](Flow Map.PNG)
 
 # Table of contents
 1. [Introduction](#introduction)
@@ -40,11 +40,11 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 9. [References](#references)
 
 ## 1. Introduction <a name="introduction"></a>
-- This README describes work done on the Tips data set for the Fundamentals of Data Analysis module assessment due 29 November 2019. Resources used include Python and associated packages Jupyter, matplotlib, Seaborn, scikit-learn, statsmodels, and SciPy. These packages all come as part of the Anaconda distribution of Python.
+- This README describes work done on the timesheets tool created by me for my team at Impendi Analytics. Resources used include Python, Tableau, Excel and Egnyte for Cloud storage (and associated python packages Jupyter, matplotlib, Seaborn, scikit-learn, statsmodels, and SciPy). These packages all come as part of the Anaconda distribution of Python.
 - The analysis takes the form of a single Jupyter notebook of filename given above. To view this file, download it from this repository and start Jupyter notebook in the folder containing the file. Use the command **Jupyter notebook** on the command line. 
 - Alternatively, view a static version of the notebook (by providing its GitHub url) using Jupyter Nbviewer. 
-- The Tips data set is included in the Seaborn visualization library. It can be loaded provided one has access to the internet when running the notebook. I downloaded it to my local machine to a **data** subdirectory of this repository. My .gitignore file includes the line _data/_ so that the subdirectory is not committed. 
-- All images intended for inclusion in this README are located in the **images** subdirectory of this repository.
+- The weekly timesheet files are included in the repository. The data set is a dummy data set. I replaced actual data with dummy data as it conflicted the privacy policies at my firm.
+- All images intended for inclusion in this README are located in the repository.
 - I have tried to structure the Jupyter notebook and this README so that they have corresponding sections. However, I do not wish to merely repeat here what has been stated in the notebook. I will endeavour to have this README summarize the work of the notebook and, hopefully, complement the analyses done there.
 
 ##  2. Description of the data set <a name="section2"></a>
