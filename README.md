@@ -9,18 +9,19 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 - Jupyter notebook: **Timesheets_Consolidation _ Email Bot.ipynb**
 - data set: Timesheets-Pipeline-Bot/Weekly Files to be Consolidated/
 
-![Flow Map](Flow Map.PNG)
+
+
 
 # Table of contents
 1. [Introduction](#introduction)
 
-2. [Description of the data set](#section2)
+2. [Flow](#section2)
     1. [Initial steps](#sec2p1)
     2. [Descriptive statistics](#sec2p2)
     3. [Start looking at categories of diner](#sec2p3)
     4. [Plots to summarize some statistics](#sec2p4)
 
-3. [Regression](#section3)
+3. [Flo](#section3)
     1. [Regression in Seaborn](#sec3p1)
     2. [Simple linear regression using polyfit](#sec3p2)
     3. [Regression with statsmodels](#sec3p3)
@@ -47,53 +48,27 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 - All images intended for inclusion in this README are located in the repository.
 - I have tried to structure the Jupyter notebook and this README so that they have corresponding sections. However, I do not wish to merely repeat here what has been stated in the notebook. I will endeavour to have this README summarize the work of the notebook and, hopefully, complement the analyses done there.
 
-##  2. Description of the data set <a name="section2"></a>
-The data in the tips data set was gathered over a two and a half month period in early 1990. It contains 244 rows of data relating to tips left in a restaurant. I'm pretty certain that this is an American data set so I will assume that the currency is $. Information within includes the total bill, tip, number in the party, day of week, time of day, gender of the person paying the bill, and whether or not they are a smoker. The total bill and tip are non-negative real numbers with two decimal places; the standard way to represent currency. The size variable is an integer with values from 1 to 6. Tip, total bill, and size are numerical variables. The remaining variables are categorical with the following possible values: sex (Male, Female), smoker (Yes, No), day (Thursday, Friday, Saturday, Sunday) and time (Lunch, Dinner). 
+##  2. Flow <a name="section2"></a>
+<img width="960" alt="Flow Map" src="https://user-images.githubusercontent.com/64707681/189486763-12012d50-e301-489f-806a-fad11521673c.PNG">
 
-I would say that the basic question is: does the tip amount depend on the total bill? One can also ask if the other variables influence the tip amount. Some of these questions will be addressed in sections 3 and 4.
+-Step one: Team members fill in the weekly timesheets through an excel workbook on cloud storage for all hours, including commute, team meals, meetings, weekend hours (if any), paid time offs, vacations, holidays etc. As soon as they would fill the timesheets, the timesheets would get sent to my folders through macros on the workbook.
+-Step two: When all workbooks reach my timesheets folder, a python code is executed which consolidates the 75 workbooks, removes duplicate rows, removes blank rows, fixes erroneous entries and validates the total hours.
+-Step three: The code sends the cleaned and consolidated file to the project managers through email using smtbl library.
+-step four: Tableau Dashboards are automatically refreshed for all since the dashboards are linked to a csv file on the drive with a live connection.
 
-### 2.1 Initial steps <a name="sec2p1"></a>
-I often use sites such as Medium.com to see how other people have investigated data sets using Python. Two examples of such exploratory data analyses are given in the reference list. The very first step is always to check if the data needs cleaning by looking for duplicate rows, zero values or NaNs where they shouldn't be, etc. Our data set is small enough to inspect visually and it looks fine. Counting the number of valid entries in each column confirms this. The head of the data set looks like:
+### 2.1 step one: Weekly Excel Workbooks <a name="sec2p1"></a>
+Team members fill in the weekly timesheets through an excel workbook on cloud storage for all hours, including commute, team meals, meetings, weekend hours (if any), paid time offs, vacations, holidays etc. As soon as they would fill the timesheets, the timesheets would get sent to my folders through macros on the workbook.
 
-![head](images/head.JPG)
+### 2.2 Step two: Consolidation & Cleaning <a name="sec2p2"></a>
+Step two: When all workbooks reach my timesheets folder, a python code is executed which consolidates the 75 workbooks, removes duplicate rows, removes blank rows, fixes erroneous entries and validates the total hours.
 
-### 2.2 Descriptive statistics <a name="sec2p2"></a>
-Pandas **describe()** can provide a quick summary of the data set as outlined in the notebook. However, without looking at the data in more detail, we cannot yet state what we think a typical diner is. What I mean is, just because most of the diners are male, smokers, and eating dinner on Saturday when we consider one variable at a time, that doesn't mean that all of these conditions are met simultaneously. In the notebook I calculate the tip as a fraction of the total bill as I think it's a measure of tip size that we are more familiar with. That is also done in the https://devarea.com/ reference below, in Wes McKinney's book when he is using the Tips data set as an example, and in the *Case Study 1: Restaurant Tipping* report, also below. So it seems like a sensible step to take. The output of pandas **describe(include="all")** is shown below. Here, all columns of the DataFrame are included in the analysis.
 
-![describeAll](images/describeAll.JPG)
+### 2.3 Step three: Email Bot <a name="sec2p3"></a>
+Step three: The code sends the cleaned and consolidated file to the project managers through email using smtbl library.
 
-From this summary we can say that:
-1. The average tip (as a fraction of total bill) is about 16%.
-2. The 50th percentile is very similar to the mean, so the mean tip is a typical value in the data set.
-3. More males than females paid the bill, 157 of the 244 observations.
-4. More non-smokers than smokers paid the bill, 151 of the 244 observations.
-5. Most of the observations relate to Saturday, 87 of the 244.
-6. Most of the observations relate to dinner, 176 of the 244.
-7. Party size varied from 1 to 6, with the average size being 2.5.
+### 2.4 Step four: Tableau Insights <a name="sec2p4"></a>
+step four: Tableau Dashboards are automatically refreshed for all since the dashboards are linked to a csv file on the drive with a live connection.
 
-I used pandas **iloc** to identify the highest and lowest tip rates:
-- The highest tip rate from a male smoker at dinner on Sunday in party size of 2, who left a 71% tip.
-- The lowest tip rate was also left by a male smoker at dinner in a party size of 2, but on Saturday; 3.6%.
-
-This is what a plot of tip versus total bill looks like. Here, data from each day is plotted in a different colour, but the same could also be done for any of the other categorical variables sex, smoker, and time.
-
-![tipVSbill](images/tipVSbill.png)
-
-### 2.3 Start looking at categories of diner <a name="sec2p3"></a>
-We can use Pandas **groupby()** to get more detailed information about tipping behaviour for each category of diner. We are concerned with the fractional tip. From this part of the notebook, we can conclude that:
-1. It seems that non-smokers, regardless of their sex, leave similar tips (about 16%).
-2. On the other hand, for smokers, females leave higher tips than males on average (18% versus 15%).
-3. The most frequently-occurring party size is 2 (156 of the total), followed by 3 (38), and 4 (37). There are only a handful of observations related to party sizes of 1, 5, and 6.
-4. The data set only contains information about dinner on Saturday (87 out of 244) and Sunday (76). There is one dinner observation on Thursday, the rest are lunch (61). Friday has lunch and dinner recorded, but overall numbers are small (19 in total).
-5. The highest average tip (as a fraction of total bill) is left at lunch on Fridays.
-6. The lowest average tip (as a fraction of total bill) is left at dinner on Saturdays.
-
-### 2.4 Plots to summarize some statistics <a name="sec2p4"></a>
-The following plots summarize this information graphically. So far it looks like the best time to be waiter in this restaurant is at lunch on Fridays if one is interested in the highest fractional tip. The best type of diner to serve is a female smoker. At this point of the analysis, I am not yet sure how the day and time variables are related to sex and smoker ones.
-
-![barSmokerSex](images/barSmokerSex.png)
-
-![barDayTime](images/barDayTime.png)
 
 ##  3. Regression <a name="section3"></a>
 For this part of the assessment, we have been asked to analyse if there is a relationship between the total bill and the tip amount. The simplest relationship would be a linear one. That's reasonable when we consider that tips (especially in the US) are usually a fixed percentage of the total bill. A linear model looks like:
