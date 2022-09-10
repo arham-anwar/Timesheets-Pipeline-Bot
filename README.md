@@ -40,30 +40,39 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 <img width="960" alt="Flow Map" src="https://user-images.githubusercontent.com/64707681/189486763-12012d50-e301-489f-806a-fad11521673c.PNG">
 
 -Step one: Team members fill in the weekly timesheets through an excel workbook on cloud storage for all hours, including commute, team meals, meetings, weekend hours (if any), paid time offs, vacations, holidays etc. As soon as they would fill the timesheets, the timesheets would get sent to my folders through macros on the workbook.
+
+
 -Step two: When all workbooks reach my timesheets folder, a python code is executed which consolidates the 75 workbooks, removes duplicate rows, removes blank rows, fixes erroneous entries and validates the total hours.
+
+
 -Step three: The code sends the cleaned and consolidated file to the project managers through email using smtbl library.
 -step four: Tableau Dashboards are automatically refreshed for all since the dashboards are linked to a csv file on the drive with a live connection.
 
+
+
 ### 2.01 Step Zero: Weekly notifications
 Team members are weekly notified to fill in the timesheets by EOD (Friday). The notfication is sent via the email ID managed through the python script.
+![image](https://user-images.githubusercontent.com/64707681/189495637-799d95ce-58ed-4147-8d1c-a7d11d760805.png)
 
 
 ### 2.1 step one: Weekly Excel Workbooks <a name="sec2p1"></a>
 Team members fill in the weekly timesheets through an excel workbook on cloud storage for all hours, including commute, team meals, meetings, weekend hours (if any), paid time offs, vacations, holidays etc. As soon as they would fill the timesheets, the timesheets would get sent to my folders through macros on the workbook.
+![image](https://user-images.githubusercontent.com/64707681/189495716-367d5a4f-0af6-40b7-a61a-529661f709e0.png)
 
 ### 2.2 Step two: Consolidation & Cleaning <a name="sec2p2"></a>
 Step two: When all workbooks reach my timesheets folder, a python code is executed which consolidates the 75 workbooks, removes duplicate rows, removes blank rows, fixes erroneous entries and validates the total hours.
-
+<img width="264" alt="Code" src="https://user-images.githubusercontent.com/64707681/189495738-9d736984-ece9-4886-b57c-46c890e8ac58.PNG">
 
 ### 2.3 Step three: Email Bot <a name="sec2p3"></a>
 Step three: The code sends the cleaned and consolidated file to the project managers through email using smtbl library.
+<img width="258" alt="Bot Email" src="https://user-images.githubusercontent.com/64707681/189495751-29eb1bbd-b1b0-47ca-bab7-3aec4b75eb39.PNG">
 
 ### 2.4 Step four: Tableau Insights <a name="sec2p4"></a>
 step four: Tableau Dashboards are automatically refreshed for all since the dashboards are linked to a csv file on the drive with a live connection.
+<img width="956" alt="Dashboard SS" src="https://user-images.githubusercontent.com/64707681/189495785-51d5739c-02c8-4f73-b308-5e6b3672172b.PNG">
+
 
 ## 3. UI Snapcshots <a name="section3"></a>
--Team members are weekly notified to fill in the timesheets by EOD (Friday). As soon as the team members fill in the timesheets, and click on the the submit button in the excel workbook, the excel is sent to my email ID through excel macros.
--The python code manages the email ID through 
 
 
 ## 4. Impact <a name="conclusion"></a>
