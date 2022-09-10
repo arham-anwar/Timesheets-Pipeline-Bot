@@ -22,7 +22,8 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
     3. [Start looking at categories of diner](#sec2p3)
     4. [Plots to summarize some statistics](#sec2p4)
      
-3. [Impact](#conclusion)
+3. [Step Details](#section3)
+5. [Impact](#conclusion)
 
 
 
@@ -43,6 +44,10 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 -Step three: The code sends the cleaned and consolidated file to the project managers through email using smtbl library.
 -step four: Tableau Dashboards are automatically refreshed for all since the dashboards are linked to a csv file on the drive with a live connection.
 
+### 2.01 Step Zero: Weekly notifications
+Team members are weekly notified to fill in the timesheets by EOD (Friday). The notfication is sent via the email ID managed through the python script.
+
+
 ### 2.1 step one: Weekly Excel Workbooks <a name="sec2p1"></a>
 Team members fill in the weekly timesheets through an excel workbook on cloud storage for all hours, including commute, team meals, meetings, weekend hours (if any), paid time offs, vacations, holidays etc. As soon as they would fill the timesheets, the timesheets would get sent to my folders through macros on the workbook.
 
@@ -56,7 +61,12 @@ Step three: The code sends the cleaned and consolidated file to the project mana
 ### 2.4 Step four: Tableau Insights <a name="sec2p4"></a>
 step four: Tableau Dashboards are automatically refreshed for all since the dashboards are linked to a csv file on the drive with a live connection.
 
-## 3. Impact <a name="conclusion"></a>
+## 3. UI Snapcshots <a name="section3"></a>
+-Team members are weekly notified to fill in the timesheets by EOD (Friday). As soon as the team members fill in the timesheets, and click on the the submit button in the excel workbook, the excel is sent to my email ID through excel macros.
+-The python code manages the email ID through 
+
+
+## 4. Impact <a name="conclusion"></a>
 The key impact of this analysis is below:
 1. Increased visibility into team work life balance
 2. Increased visibility into project split of the work hours
