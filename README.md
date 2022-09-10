@@ -9,9 +9,9 @@ https://github.com/kakashisensei101/Timesheets-Pipeline-Bot
 - Jupyter notebook: **Timesheets_Consolidation _ Email Bot.ipynb**
 - data set: Timesheets-Pipeline-Bot/Weekly Files to be Consolidated/
 
-
+<p align="center">
 ![Time Sheets Gif](https://user-images.githubusercontent.com/64707681/189487172-69a6c5ed-ea84-48ef-a39b-04b57b70721a.gif)
-
+</p>
 
 # Table of contents
 1. [Introduction](#introduction)
