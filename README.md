@@ -61,14 +61,17 @@ Team members fill in the weekly timesheets through an excel workbook on cloud st
 
 ### 2.2 Step two: Consolidation & Cleaning <a name="sec2p2"></a>
 Step two: When all workbooks reach my timesheets folder, a python code is executed which consolidates the 75 workbooks, removes duplicate rows, removes blank rows, fixes erroneous entries and validates the total hours.
+
 <img width="264" alt="Code" src="https://user-images.githubusercontent.com/64707681/189495738-9d736984-ece9-4886-b57c-46c890e8ac58.PNG">
 
 ### 2.3 Step three: Email Bot <a name="sec2p3"></a>
 Step three: The code sends the cleaned and consolidated file to the project managers through email using smtbl library.
+
 <img width="258" alt="Bot Email" src="https://user-images.githubusercontent.com/64707681/189495751-29eb1bbd-b1b0-47ca-bab7-3aec4b75eb39.PNG">
 
 ### 2.4 Step four: Tableau Insights <a name="sec2p4"></a>
 step four: Tableau Dashboards are automatically refreshed for all since the dashboards are linked to a csv file on the drive with a live connection.
+
 <img width="956" alt="Dashboard SS" src="https://user-images.githubusercontent.com/64707681/189495785-51d5739c-02c8-4f73-b308-5e6b3672172b.PNG">
 
 
